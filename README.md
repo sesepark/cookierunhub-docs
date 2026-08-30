@@ -2,11 +2,11 @@
 
 혼자 설계·개발·운영하고 있는 게임 정보 웹서비스의 **엔지니어링 기록**입니다.
 집에 둔 리눅스 서버 한 대 위에서 무중단 배포와 자동 장애 복구까지 직접 굴리고 있습니다.
-최근 113일 동안 **27만 명이 실제로 쓴 서비스**입니다. → [www.cookierunhub.com](https://www.cookierunhub.com)
+**월 활성 사용자 14만 명**이 쓰는 서비스입니다. → [www.cookierunhub.com](https://www.cookierunhub.com)
 
 > *Engineering notes on a trilingual game-information web service I have designed, built and
-> operated alone for six months — 270k active users, blue-green zero-downtime deploys and
-> health-based automatic recovery on a Linux box at home. Code and collected data are not
+> operated alone for six months — 140k monthly active users, blue-green zero-downtime deploys
+> and health-based automatic recovery on a Linux box at home. Code and collected data are not
 > published; only the structure and the reasoning behind it. Written in Korean.*
 
 > 이 저장소에는 코드와 데이터가 없습니다. 서비스의 콘텐츠 데이터는 직접 수집·정리한 것이라
@@ -18,13 +18,45 @@ Google Analytics 실측입니다. 구간은 **2026-05-10 ~ 2026-08-30 (113일)**
 
 | 항목 | 값 |
 |---|---|
-| 활성 사용자 | **27만 명** |
-| 신규 사용자 | 27만 명 |
+| 월 활성 사용자 (MAU) | **14만 명** |
+| 주 활성 사용자 (WAU) | 5.1만 명 |
+| 일 활성 사용자 (DAU) | 1.3만 명 |
+| 구간 누적 활성 사용자 | 27만 명 |
 | 이벤트 | 2,609만 |
 | 활성 사용자당 평균 참여 시간 | **18분 02초** |
+| 활성 사용자당 참여 세션 수 | 5.8회 |
 
 18분이라는 체류 시간이 이 서비스의 성격을 가장 잘 설명합니다. 읽고 나가는 정보 페이지가
 아니라 조합을 찾고 비교하고 저장하는 도구라, 한 번 들어오면 오래 머뭅니다.
+
+### 이용자 추이와 재방문
+
+활성 사용자는 6월 말까지 거의 0에 가까웠습니다. 7월에 검색 유입이 걸리기 시작하면서 가파르게
+올랐고, 8월에는 일 활성 1~2만 명대에서 유지되고 있습니다. 광고를 집행한 적은 없습니다.
+
+| 재방문 지표 | 값 | 뜻 |
+|---|---|---|
+| WAU / MAU | **35.3%** | 한 달 안에 들어온 사람 셋 중 하나가 그 주에도 들어옵니다 |
+| DAU / WAU | 26.2% | 그 주 이용자의 네 명 중 한 명꼴이 하루 안에 다시 옵니다 |
+| DAU / MAU | **9.2%** | 서비스가 얼마나 습관이 되었는가 |
+
+한 번 쓰고 마는 서비스가 아니라는 것이 이 세 숫자에 들어 있습니다. 활성 사용자당 참여 세션이
+5.8회라는 것도 같은 이야기입니다 — 한 사람이 평균 여섯 번 가까이 다시 열었습니다.
+
+### 무슨 일이 일어나는가
+
+| 이벤트 | 수 |
+|---|---|
+| page_view | 1,664만 |
+| ad_impression | 471만 |
+| session_start | 208만 |
+| scroll | 117만 |
+| user_engagement | 110만 |
+| first_visit | 27만 |
+| click | 12만 |
+
+세션 208만 회에 페이지뷰 1,664만 — 세션당 8쪽 가까이 넘겨 봅니다. 조합 하나를 정하려고
+여러 개를 열어 비교하는 사용 방식이 그대로 드러납니다.
 
 ### 3개국어가 실제로 쓰이는가
 
@@ -69,6 +101,13 @@ canonical·hreflang 설정이 그대로 유입으로 돌아옵니다.
 | 쿠키런HUB 메인 (ko) | 58.9만 | 9.1만 | 6.2% |
 
 메인 페이지 이탈률 6.2%는 조합 목록·상세로 이어지는 동선이 실제로 작동한다는 뜻입니다.
+
+### 수익
+
+같은 구간의 총수익은 **$445.18**이고 전액 광고 수익입니다(광고 노출 471만 회).
+결제 기능은 두지 않아 전자상거래 수익과 구매자는 0이며, 이용자에게 직접 돈을 받지 않습니다.
+규모 자체는 크지 않지만, 트래픽을 받는 것과 그 트래픽으로 운영을 지탱하는 것은 다른 문제라
+여기에 함께 적어 둡니다.
 
 ## 코드 규모
 
