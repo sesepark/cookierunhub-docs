@@ -3,6 +3,11 @@
 혼자 설계·개발·운영하고 있는 게임 정보 웹서비스의 **엔지니어링 기록**입니다.
 집에 둔 리눅스 서버 한 대 위에서 무중단 배포와 자동 장애 복구까지 직접 굴리고 있습니다.
 
+> *An engineering case study of a trilingual game-information web service I have designed,
+> built and operated alone for six months — blue-green zero-downtime deploys and health-based
+> automatic recovery on a Linux box at home. Code and collected data are not published;
+> only the structure and the reasoning behind it. Written in Korean.*
+
 > 이 저장소에는 코드와 데이터가 없습니다. 서비스의 콘텐츠 데이터는 직접 수집·정리한 것이라
 > 공개하지 않고, 구조와 기술적 판단만 정리했습니다. 코드 열람이 필요하시면 말씀해 주세요.
 
@@ -140,6 +145,15 @@ src/<domain>/
 **프론트엔드** TypeScript · Next.js App Router · React
 **모바일** Android (Kotlin) · iOS
 **인프라** 자택 Linux 서버 · Docker Compose · Caddy · systemd · GitHub Actions
+
+## 한계와 주의
+
+- **이 저장소에는 실행 가능한 것이 없습니다.** 코드·데이터베이스·수집 데이터는 공개하지 않고,
+  구조와 기술적 판단만 문서로 정리했습니다. 코드 열람이 필요하시면 말씀해 주세요.
+- 서비스의 콘텐츠 데이터와 이미지 자산은 직접 수집·정리한 것이라 공개 대상이 아닙니다.
+- 위 수치(커밋·코드 줄 수·마이그레이션 개수)는 비공개 저장소 기준이며, 계속 늘어납니다.
+- 자택 서버 한 대로 운영하므로 가용성은 관리형 클라우드와 같은 수준이 아닙니다. 그래서
+  무중단 배포보다 **자동 복구**에 더 공을 들였습니다.
 
 ## 관련 저장소
 
